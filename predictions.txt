@@ -1,0 +1,6 @@
+,Filename,Predicted class,Probability,Audiotype,Channel
+0,Kashif_Abbasi_off_the.wav,Nawaz Shareef,0.6414452,Mono,A
+1,kashif_petrol.wav,Kashif Abbassi,0.96631485,Mono,A
+2,Urdu_kashif.wav,Kashif Abbassi,0.9784694,Mono,A
+3,zardari.wav,Asif Ali Zardari,0.994412,Mono,A
+4,zardariii.wav,Asif Ali Zardari,0.9954444,Mono,A
