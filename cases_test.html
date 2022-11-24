@@ -1,0 +1,384 @@
+<html>
+
+<head>
+    <script src="bs6/jquery.min.js"
+        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="bs6/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="bs6/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="bs6/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <style>
+        /* demo shizzle only */
+        /* @import url('https://fonts.googleapis.com/css?family=Heebo:400,700|Open+Sans:400,700'); */
+
+        :root {
+            --color: #3c3163;
+            --transition-time: 0.3s;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background:#BECADF;
+            /*background-image: url("images/survelillance.jpg");
+            /* background-repeat: no-repeat; */
+            background-size: cover;
+            /* <------ */
+            background-repeat: no-repeat;
+            /* background-position: center center;     */
+
+            /* margin: 0; */
+            /* min-height: 100vh; */
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            /* background: #fafafa; */
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .cards-wrapper {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-gap: 5rem;
+            padding: 3rem;
+            margin: 0 auto;
+            width: max-content;
+        }
+
+        .card {
+
+
+            font-family: 'Heebo';
+            --bg-filter-opacity: 0.1;
+            background-image: linear-gradient(rgba(0, 0, 0, var(--bg-filter-opacity)), rgba(0, 0, 0, var(--bg-filter-opacity))), var(--bg-img);
+            height: 19em;
+            width: 15em;
+            font-size: 1.5em;
+            font-weight: bolder;
+            border-radius: 1em;
+            padding: 1em;
+            color: white;
+            font-weight: bold;
+            text-rendering: geometricPrecision;
+            text-decoration-color: white;
+            /*margin: 2em;*/
+            display: flex;
+            align-items: flex-end;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 0 5em -1em black;
+            transition: all, var(--transition-time);
+            position: relative;
+            overflow: hidden;
+            border: 10px solid #ccc;
+            text-decoration: none;
+            /* width: 100%;
+            height: 100%; */
+            /* object-fit: cover; */
+
+            object-fit: cover;
+        }
+
+        .card:hover {
+            transform: rotate(0);
+        }
+
+        .card h1 {
+            margin: 0;
+            font-size: 1.5em;
+            line-height: 1.2em;
+        }
+
+        .card p {
+            font-size: 0.75em;
+            font-family: 'Open Sans';
+            margin-top: 0.5em;
+            line-height: 2em;
+        }
+
+        .card .tags {
+            display: flex;
+        }
+
+        .card .tags .tag {
+            font-size: 0.75em;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 0.3rem;
+            padding: 0 0.5em;
+            margin-right: 0.5em;
+            line-height: 1.5em;
+            transition: all, var(--transition-time);
+        }
+
+        .card:hover .tags .tag {
+            background: var(--color);
+            color: white;
+        }
+
+        .card .date {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 0.75em;
+            padding: 1em;
+            line-height: 1em;
+            opacity: .8;
+        }
+
+        .card:before,
+        .card:after {
+
+            content: '';
+            transform: scale(0);
+            transform-origin: top left;
+            border-radius: 50%;
+            position: absolute;
+            left: -50%;
+            top: -50%;
+            z-index: -5;
+            transition: all, var(--transition-time);
+            transition-timing-function: ease-in-out;
+        }
+
+        .card:before {
+            background: #ddd;
+            width: 100%;
+            height: 100%;
+        }
+
+        .card:after {
+            background: white;
+            width: 200%;
+            height: 200%;
+            opacity: 0.6;
+        }
+
+        .card:hover {
+            color: var(--color);
+        }
+
+        .card:hover:before,
+        .card:hover:after {
+            transform: scale(1);
+        }
+
+        .card-grid-space .num {
+            font-size: 3em;
+            margin-bottom: 1.2rem;
+            margin-left: 1rem;
+        }
+
+        .info {
+            font-size: 1.2em;
+            display: flex;
+            padding: 1em 3em;
+            height: 3em;
+        }
+
+        .info img {
+            height: 3em;
+            margin-right: 0.5em;
+        }
+
+        .info h1 {
+            font-size: 1em;
+            font-weight: normal;
+        }
+
+        /* MEDIA QUERIES */
+        @media screen and (max-width: 1285px) {
+            .cards-wrapper {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media screen and (max-width: 900px) {
+            .cards-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .info {
+                justify-content: center;
+            }
+
+            .card-grid-space.num {
+                margin-left: 0;
+                text-align: center;
+            }
+        }
+
+        @media screen and (max-width: 500px) {
+            .cards-wrapper {
+                padding: 4rem 2rem;
+            }
+
+            .card {
+                max-width: calc(100vw - 4rem);
+            }
+        }
+
+        @media screen and (max-width: 450px) {
+            .info {
+                display: block;
+                text-align: center;
+            }
+
+            .info h1 {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+    <section class="info">
+        <!-- <div class="jumbotron">
+            <h1 class="display-4">Hello, world!</h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <p class="lead">
+              <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+            </p>
+          </div> -->
+    </section>
+    <section class="cards-wrapper">
+        <div class="card-grid-space">
+
+            <a class="card" href="cases_target.html" style="--bg-img: url(images/acdas.jpg)">
+                <div>
+                    <h1>Facial Recognition System</h1>
+
+
+
+                </div>
+            </a>
+        </div>
+
+        <div class="card-grid-space">
+
+            <a class="card" href="baggage_detect.php" style="--bg-img: url(images/bag.png)">
+                <div>
+                    <h1 style="justify-content: center;">Unattended Baggage Detection</h1>
+
+
+
+                </div>
+            </a>
+        </div>
+        <div class="card-grid-space">
+
+            <a class="card" href="crowd_detect.php" style="--bg-img: url(images/walkthrough.jpg)">
+                <div>
+                    <h1>Anomaly Detection in Restricted Area 
+                    </h1>
+
+
+
+                </div>
+            </a>
+        </div>
+
+        <div class="card-grid-space">
+
+            <a class="card" href="vehicle_detect.php" style="--bg-img: url(images/trafficanalysis.jpg)">
+                <div>
+                    <h1 style="justify-content: center;">Suspicious Vehicle Tracking</h1>
+
+
+
+                </div>
+            </a>
+        </div>
+
+        <div class="card-grid-space">
+
+            <a class="card" href="cases_crime.html" style="--bg-img: url(images/criminal.jpg)">
+                <div>
+                    <h1>Crime Detection</h1>
+
+
+                </div>
+            </a>
+        </div>
+
+
+
+ 
+
+
+        <div class="card-grid-space">
+
+            <a class="card" href="videos_personid.php" style="--bg-img: url(images/reID.png)">
+                <div>
+                    <h1>Person Identification & Tracking</h1>
+
+
+
+                </div>
+            </a>
+        </div>
+        <div class="card-grid-space">
+
+            <a class="card" href="upload_weapon.php" style="--bg-img: url(images/weapon.png)">
+                <div>
+                    <h1>Weapon Detection System</h1>
+
+
+
+                </div>
+            </a>
+        </div>
+
+        <div class="card-grid-space">
+
+            <a class="card" href="video_summarization.php" style="--bg-img: url(images/AI-CCTV.jpg)">
+                <div>
+                    <h1>CCTV Footage Summarization</h1>
+
+
+
+                </div>
+            </a>
+        </div>
+        <div class="card-grid-space">
+
+            <a class="card" href="uav_summarization.php" style="--bg-img: url(images/uav.png)">
+                <div>
+                    <h1>UAV Feeds Analytics</h1>
+                    <p></p>
+
+
+                </div>
+            </a>
+        </div>
+        <div class="card-grid-space">
+            <a class="card" href="all_detect.php" style="--bg-img: url(images/surveillance.webp)">
+                <div>
+                    <h1>Real Time Surveillance</h1>
+
+
+                </div>
+            </a>
+        </div>
+
+        <!-- https://images.unsplash.com/photo-1520839090488-4a6c211e2f94?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=38951b8650067840307cba514b554ba5&auto=format&fit=crop&w=1350&q=80 -->
+    </section>
+</body>
+
+</html>
